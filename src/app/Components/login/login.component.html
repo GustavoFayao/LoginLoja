@@ -4,24 +4,27 @@
             <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
                 <div class="card border bg-white">
                     <div class="card-header">
-                        <h3 class="pt-3 font-weight-bold">Login</h3>
+                        <h3 class="pt-3 text-center font-weight-bold">Login</h3>
                     </div>
                         <div class="card-body p-3">
-                            <form>
+                            <form [formGroup]= loginForm>
                                 <div class="form-group pt-3">
                                     <div class="input-field">
                                         <span class="fa fa-user p-2"></span>
-                                        <input type="text" placeholder="Username">
+                                        <input formControlName="username" type="text" placeholder="Username">
                                     </div>
                                 </div>
+                                <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')" class="text-danger">*Obrigatorio colocar o usuario</small>
                                 <div class="form-group pt-3">
                                     <div class="input-field">
                                         <span class="fa fa-lock p-2"></span>
-                                        <input type="text" placeholder="Username">
+                                        <input formControlName="password" [type]="type" placeholder="Password">
+                                        <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
                                     </div>
                                 </div>
+                                <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')" class="text-danger">*Obrigatorio colocar senha</small>
                                 <div class="form-inline fr mt-4">
-                                    <a id="forget" class="font-weight-bold">Forget Password?</a>
+                                    <a id="forget" class="font-weight-bold">Esqueci minha senha</a>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-block mt-4 w-100">login</button>
                                 <div class="text-center pt-4 text-muted">Não possui uma conta?
@@ -29,6 +32,16 @@
                                 </div>
                             </form>
                         </div>
+                    <div class="mx-3 my-2 py-2 bordert">
+                        <div class="text-center py-3" style="font-size: 30px;">
+                            <a href="https://accounts.google.com/signin" target="_blank" class="px-2">
+                            <i class="fab fa-google"></i></a>
+                            <a href="https://github.com/login" target="_blank" class="px-2">
+                            <i class="fab fa-github"></i></a>
+                            <a href="https://www.facebook.com/login.php" target="_blank" class="px-2">
+                            <i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
