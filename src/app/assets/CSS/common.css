@@ -45,6 +45,11 @@ a:hover{
     border: 1px solid  #ddd;
     color: #4343ff;
 }
+  
+.input-field.error span {
+    color: red;
+}
+  
 
 .input-field.erro{
     border: 1px solid red;
