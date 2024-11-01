@@ -7,7 +7,7 @@
                         <h3 class="pt-3 text-center font-weight-bold">Registrar</h3>
                     </div>
                         <div class="card-body p-3">
-                            <form formGroup="signUpForm">
+                            <form formGroup="signUpForm" >
                                 <div class="form-group pt-3">
                                     <div class="input-field">
                                         <span class="fa fa-user p-2"></span>
@@ -35,7 +35,7 @@
                                         <input formControlName="username" type="text" placeholder="Username">
                                     </div>
                                 </div>
-                                <small *ngIf="signUpForm.controls['username'].dirty && signUpForm.hasError('required','username')" class="text-danger">*Obrigatorio colocar senha</small>
+                                <small *ngIf="signUpForm.controls['userName'].dirty && signUpForm.hasError('required','userName')" class="text-danger">*Obrigatorio colocar </small>
                                 <div class="form-group pt-3">
                                     <div class="input-field" [class.error]="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')">
                                         <span class="fa fa-lock p-2"></span>
@@ -44,7 +44,7 @@
                                     </div>
                                 </div>                                
                                 <small *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')" class="text-danger">*Obrigatorio colocar senha</small>
-                                <button type="submit" class="btn btn-primary btn-block mt-4 w-100">Registrar</button>
+                                <button type="submit" class="btn btn-primary btn-bx'lock mt-4 w-100" >Registrar</button>
                                 <div class="text-center pt-4 text-muted">Já possui uma conta?
                                      <a id="forget" routerLink="/login" >Login</a>
                                 </div>

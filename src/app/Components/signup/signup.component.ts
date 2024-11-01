@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { NgIf } from '@angular/common';
 
+
 @Component({
   selector: 'app-signup',
   standalone: true,
@@ -36,6 +37,29 @@ export class SignupComponent {
     this.isText ? this.eyeIcon = "fa-eye" : this.eyeIcon = "fa-eye-slash";
     this.isText ? this.type = "text" : this.type = "password"
   }
-  
+  onSignup(){
+    if(this.signUpForm.valid){
+      console.log(this.signUpForm.value)
+    }else{
+      console.log("formulario esta incorreto!!")
+      
+      this.validateAllFormFields(this.signUpForm)   
+      alert("Erro Algo esta incorreto!!")
+    }
+
+  }
+
+  private validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+        const control = formGroup.get(field);
+        if (control instanceof FormControl) {
+            control.markAsDirty({ onlySelf: true });
+        } else if (control instanceof FormGroup) {
+            this.validateAllFormFields(control);
+        }
+    });
+  }
+
+
   }
   
