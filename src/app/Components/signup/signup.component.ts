@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
 
 
@@ -21,11 +22,11 @@ export class SignupComponent {
 
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
-      nome: ['',Validators.required],
-      sobreNome: ['',Validators.required],
-      userName: ['',Validators.required],
-      email: ['',Validators.required],
-      password: ['',Validators.required]
+      nome: ['', Validators.required],
+      sobreNome: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     })
 
 

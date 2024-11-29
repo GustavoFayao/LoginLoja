@@ -6,58 +6,79 @@
                     <div class="card-header">
                         <h3 class="pt-3 text-center font-weight-bold">Registrar</h3>
                     </div>
-                        <div class="card-body p-3">
-                            <form formGroup="signUpForm" >
-                                <div class="form-group pt-3">
-                                    <div class="input-field">
-                                        <span class="fa fa-user p-2"></span>
-                                        <input formControlName="nome" type="text" placeholder="Nome">
-                                    </div>
+                    <div class="card-body p-3">
+                        <form formGroup="signUpForm" (ngSubmit)="onSignup()">
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="nome" type="text" placeholder="Nome">
                                 </div>
-                                <small *ngIf="signUpForm.controls['nome'].dirty && signUpForm.hasError('required','nome')" class="text-danger">*Obrigatorio colocar senha</small>
-                                <div class="form-group pt-3">
-                                    <div class="input-field">
-                                        <span class="fa fa-user p-2"></span>
-                                        <input formControlName="sobreNome" type="text" placeholder="Sobrenome">
-                                    </div>
+                                <small *ngIf="signUpForm.controls['nome'].dirty && signUpForm.hasError('required','nome')" class="text-danger ">
+                                    *Obrigatório colocar o nome
+                                </small>
+                            </div>
+                            
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="sobreNome" type="text" placeholder="Sobrenome">
                                 </div>
-                                <small *ngIf="signUpForm.controls['sobreNome'].dirty && signUpForm.hasError('required','sobreNome')" class="text-danger">*Obrigatorio colocar sobrenome</small>                                
-                                <div class="form-group pt-3">
-                                    <div class="input-field">
-                                        <span class="fa fa-user p-2"></span>
-                                        <input formControlName="email" type="text" placeholder="Email">
-                                    </div>
-                                </div>         
-                                <small *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')" class="text-danger">*Obrigatorio colocar o email </small>                             
-                                <div class="form-group pt-3">
-                                    <div class="input-field" [class.error]="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')">
-                                        <span class="fa fa-user p-2"></span>
-                                        <input formControlName="username" type="text" placeholder="Username">
-                                    </div>
+                                <small *ngIf="signUpForm.controls['sobreNome'].dirty && signUpForm.hasError('required','sobreNome')" class="text-danger ">
+                                    *Obrigatório colocar o sobrenome
+                                </small>
+                            </div>
+                            
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="email" type="text" placeholder="Email">
                                 </div>
-                                <small *ngIf="signUpForm.controls['userName'].dirty && signUpForm.hasError('required','userName')" class="text-danger">*Obrigatorio colocar </small>
-                                <div class="form-group pt-3">
-                                    <div class="input-field" [class.error]="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')">
-                                        <span class="fa fa-lock p-2"></span>
-                                        <input [type]="type" placeholder="Senha">
-                                        <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
-                                    </div>
-                                </div>                                
-                                <small *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')" class="text-danger">*Obrigatorio colocar senha</small>
-                                <button type="submit" class="btn btn-primary btn-bx'lock mt-4 w-100" >Registrar</button>
-                                <div class="text-center pt-4 text-muted">Já possui uma conta?
-                                     <a id="forget" routerLink="/login" >Login</a>
+                                <small *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')" class="text-danger ">
+                                    *Obrigatório colocar o email
+                                </small>
+                            </div>
+                            
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="username" type="text" placeholder="Username">
                                 </div>
-                            </form>
-                        </div>
+                                <small *ngIf="signUpForm.controls['username'].dirty && signUpForm.hasError('required','username')" class="text-danger ">
+                                    *Obrigatório colocar o username
+                                </small>
+                            </div>
+                            
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-lock p-2"></span>
+                                    <input formControlName="password" [type]="type" placeholder="Senha">
+                                    <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                                </div>
+                                <small *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')" class="text-danger ">
+                                    *Obrigatório colocar a senha
+                                </small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary mt-4 w-100" >Registrar</button>
+
+                            <div class="text-center pt-4 text-muted">
+                                Já possui uma conta?
+                                <a id="forget" routerLink="/login">Login</a>
+                            </div>
+                        </form>
+                    </div>
+                    
                     <div class="mx-3 my-2 py-2 bordert">
                         <div class="text-center py-3" style="font-size: 30px;">
                             <a href="https://accounts.google.com/signin" target="_blank" class="px-2">
-                            <i class="fab fa-google"></i></a>
+                                <i class="fab fa-google"></i>
+                            </a>
                             <a href="https://github.com/login" target="_blank" class="px-2">
-                            <i class="fab fa-github"></i></a>
+                                <i class="fab fa-github"></i>
+                            </a>
                             <a href="https://www.facebook.com/login.php" target="_blank" class="px-2">
-                            <i class="fab fa-facebook"></i></a>
+                                <i class="fab fa-facebook"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
