@@ -8,7 +8,7 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [RouterLink,NgIf],
+  imports: [RouterLink,ReactiveFormsModule,NgIf],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
